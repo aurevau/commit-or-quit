@@ -9,4 +9,5 @@
     <color name="cq_on_secondary">#FFFFFF</color>
     <color name="cq_on_background">#121212</color>
     <color name="cq_on_surface">#121212</color>
+    <color name="cq_gray">#8E8E8E</color>
 </resources>
