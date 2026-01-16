@@ -13,4 +13,7 @@
     <color name="cq_on_surface">#FEFFF7</color>
     <color name="cq_gray">#2C2C2C</color>
 
+    <color name="light_gray">#D9D9D9</color>
+
+
 </resources>
