@@ -14,7 +14,7 @@
 
         <!-- Background / Surface -->
         <item name="android:windowBackground">@color/cq_background</item>
-        <item name="colorBackground">@color/cq_background</item>
+        <item name="android:colorBackground">@color/cq_background</item>
         <item name="colorSurface">@color/cq_surface</item>
         <item name="colorOnBackground">@color/cq_on_background</item>
         <item name="colorOnSurface">@color/cq_on_surface</item>
