@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.CreateGoalFragment">
+
+    <TextView
+        android:layout_margin="30dp"
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Cancel"/>
+
+    <TextView
+        android:layout_margin="30dp"
+        android:id="@+id/tv_header"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/btn_cancel"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_post"
+        android:text="Create a Goal"/>
+
+    <TextView
+        android:layout_margin="30dp"
+        android:id="@+id/btn_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cq_orange"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Post"/>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/til_goal_title"
+        app:boxBackgroundColor="@color/cq_gray"
+        app:layout_constraintTop_toBottomOf="@id/chip_group_category"
+        android:hint="Goal Title"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_goal_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_goal_description"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        app:boxBackgroundColor="@color/cq_gray"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/til_goal_title"
+        android:hint="Description"
+       >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_goal_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minLines="3"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        app:boxBackgroundColor="@color/cq_gray"
+        app:layout_constraintTop_toBottomOf="@id/til_goal_description"
+        android:id="@+id/tilStartDate"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select start date"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/calender"
+        app:startIconTint="@color/cq_on_primary">
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/etStartDate"
+            android:paddingStart="50dp"
+            android:paddingEnd="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:clickable="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEndDate"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@color/cq_gray"
+        android:hint="Select end date"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/calender"
+        app:startIconTint="@color/cq_on_primary"
+
+
+        app:layout_constraintTop_toBottomOf="@id/tilStartDate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            app:boxBackgroundColor="@color/cq_gray"
+            android:id="@+id/etEndDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="50dp"
+            android:paddingEnd="40dp"
+            android:focusable="false"
+            android:clickable="true"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Första raden: Friends Only / Everyone -->
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/privacy_toggle_row1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:singleSelection="true"
+        app:cornerRadius="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/chip_group_friends"
+        app:layout_constraintStart_toStartOf="@id/tilEndDate"
+        app:layout_constraintEnd_toEndOf="@id/tilEndDate">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_members_only"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Members Only"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_everyone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Everyone"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_friends"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:singleSelection="false"
+        app:chipSpacing="8dp"
+        app:layout_constraintTop_toBottomOf="@id/til_update_frequency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:singleSelection="false"
+        app:chipSpacing="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_header">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_health"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health"
+            android:textColor="@color/cq_on_surface"
+            app:chipBackgroundColor="@color/cq_gray"
+            app:checkable="true"/>
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_personal_growth"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Growth"
+            android:textColor="@color/cq_on_surface"
+            app:chipBackgroundColor="@color/cq_gray"
+            app:checkable="true"/>
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_social"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Social"
+            android:textColor="@color/cq_on_surface"
+            app:chipBackgroundColor="@color/cq_gray"
+            app:checkable="true"/>
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_other"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"
+            android:textColor="@color/cq_on_surface"
+            app:chipBackgroundColor="@color/cq_gray"
+            app:checkable="true"/>
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="16dp"
+        android:id="@+id/til_update_frequency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Update frequency"
+        app:boxBackgroundColor="@color/cq_gray"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tilEndDate">
+
+        <AutoCompleteTextView
+            android:padding="16dp"
+            android:id="@+id/actv_update_frequency"
+            android:layout_width="match_parent"
+            android:textSize="16sp"
+            android:paddingStart="20dp"
+            android:textColor="@color/cq_on_surface"
+            android:textColorHint="@color/cq_on_surface"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
