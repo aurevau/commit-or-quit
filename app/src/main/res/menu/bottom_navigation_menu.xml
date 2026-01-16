@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/nav_create_goal"
-        android:enabled="true"
-        android:icon="@drawable/check_icon"
-        android:title="Create Goal"/>
+
+
+<!--    <item-->
+<!--        android:id="@+id/nav_chats"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/chat_icon"-->
+<!--        android:title="Chats"/>-->
 
     <item
-        android:id="@+id/nav_chats"
-        android:enabled="true"
-        android:icon="@drawable/chat_icon"
-        android:title="Chats"/>
-
-    <item
-        android:id="@+id/nav_feed"
+        android:id="@+id/feedFragment"
         android:enabled="true"
         android:icon="@drawable/house"
         android:title="Feed"/>
 
     <item
-        android:id="@+id/nav_profile"
+        android:id="@+id/createGoalFragment"
+        android:enabled="true"
+        android:icon="@drawable/check_icon"
+        android:title="Create Goal"/>
+
+    <item
+        android:id="@+id/profileFragment"
         android:enabled="true"
         android:icon="@drawable/profile_icon"
         android:title="Profile"/>
