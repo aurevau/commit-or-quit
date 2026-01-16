@@ -16,7 +16,7 @@
             android:id="@+id/iv_profile_pic"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/profile_icon"
+            android:src="@drawable/profile_icon_fill"
             android:visibility="invisible"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/circle_background"
