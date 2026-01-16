@@ -1,8 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Commitorquitapp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/cq_primary</item>
+        <item name="colorPrimaryVariant">@color/cq_primary_variant</item>
+        <item name="colorOnPrimary">@color/cq_on_primary</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/cq_secondary</item>
+        <item name="colorOnSecondary">@color/cq_on_secondary</item>
+
+        <!-- Background / Surface -->
+        <item name="android:windowBackground">@color/cq_background</item>
+        <item name="colorBackground">@color/cq_background</item>
+        <item name="colorSurface">@color/cq_surface</item>
+        <item name="colorOnBackground">@color/cq_on_background</item>
+        <item name="colorOnSurface">@color/cq_on_surface</item>
+
+        <!-- Status bar / navigation bar -->
+        <item name="android:statusBarColor">@color/cq_background</item>
+        <item name="android:navigationBarColor">@color/cq_background</item>
     </style>
 
     <style name="Theme.Commitorquitapp" parent="Base.Theme.Commitorquitapp" />
