@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/til_goal_title"
-        app:boxBackgroundColor="@color/cq_gray"
+        app:boxBackgroundColor="@color/cq_background"
         app:layout_constraintTop_toBottomOf="@id/chip_group_category"
         android:hint="Goal Title"
         app:boxCornerRadiusTopEnd="20dp"
@@ -66,7 +66,7 @@
         android:id="@+id/til_goal_description"
         android:layout_width="match_parent"
         android:layout_margin="16dp"
-        app:boxBackgroundColor="@color/cq_gray"
+        app:boxBackgroundColor="@color/cq_background"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/til_goal_title"
         android:hint="Description"
@@ -82,7 +82,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        app:boxBackgroundColor="@color/cq_gray"
+        app:boxBackgroundColor="@color/cq_background"
         app:layout_constraintTop_toBottomOf="@id/til_goal_description"
         android:id="@+id/tilStartDate"
         android:layout_margin="16dp"
@@ -110,7 +110,7 @@
         android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/cq_gray"
+        app:boxBackgroundColor="@color/cq_background"
         android:hint="Select end date"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@id/tilStartDate">
 
         <com.google.android.material.textfield.TextInputEditText
-            app:boxBackgroundColor="@color/cq_gray"
+            app:boxBackgroundColor="@color/cq_background"
             android:id="@+id/etEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -165,6 +165,7 @@
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chip_group_friends"
         android:layout_width="match_parent"
+        app:boxBackgroundColor="@color/cq_background"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:singleSelection="false"
@@ -240,7 +241,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Update frequency"
-        app:boxBackgroundColor="@color/cq_gray"
+        app:boxBackgroundColor="@color/cq_background"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusBottomEnd="20dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -268,7 +269,7 @@
         app:layout_constraintTop_toBottomOf="@id/chip_group_friends"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cardBackgroundColor="@color/cq_gray" >
+        app:cardBackgroundColor="@color/cq_background" >
 
         <LinearLayout
             android:layout_width="match_parent"
