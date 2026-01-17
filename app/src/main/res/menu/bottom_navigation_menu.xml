@@ -12,13 +12,13 @@
     <item
         android:id="@+id/feedFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_home_selector"
+        android:icon="@drawable/ic_check_selector"
         android:title="Feed"/>
 
     <item
         android:id="@+id/createGoalFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_check_selector"
+        android:icon="@drawable/ic_home_selector"
         android:title="Create Goal"/>
 
     <item

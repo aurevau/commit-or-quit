@@ -3,34 +3,38 @@ package com.example.commitorquitapp.ui
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.commitorquitapp.R
+import com.example.commitorquitapp.databinding.FragmentNotificationBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
+class NotificationFragment: BottomSheetDialogFragment() {
 
-class SelectUsersFragment : BottomSheetDialogFragment() {
-
+    private lateinit var binding: FragmentNotificationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_select_users, container, false)
+        binding = FragmentNotificationBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
 
     override fun onStart() {
         super.onStart()
 
-        dialog?.window?.setWindowAnimations(R.style.DialogSlideInLeftAnimation)
+        dialog?.window?.setWindowAnimations(com.example.commitorquitapp.R.style.DialogSlideInRightAnimation)
 
         dialog?.window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
@@ -39,6 +43,4 @@ class SelectUsersFragment : BottomSheetDialogFragment() {
 
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
-
-
 }
