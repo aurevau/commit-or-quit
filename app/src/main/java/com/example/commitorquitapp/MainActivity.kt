@@ -4,11 +4,12 @@ import android.os.Bundle
 
 import androidx.appcompat.app.AppCompatActivity
 
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.commitorquitapp.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.commitorquitapp.ui.CreateGoalFragment
+import com.example.commitorquitapp.ui.NotificationFragment
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -23,5 +24,22 @@ class MainActivity : AppCompatActivity() {
 
         // Setup bottom nav
         binding.bottomNav.setupWithNavController(navController)
+
+        binding.bottomNav.menu
+            .findItem(R.id.createGoalFragment)
+            .setOnMenuItemClickListener {
+                CreateGoalFragment()
+                    .show(supportFragmentManager, "CreateGoalBottomSheet")
+                true
+            }
+
+
+        binding.btnNotification.setOnClickListener {
+            val dialog = NotificationFragment()
+            dialog.show(supportFragmentManager, "notifications_fragment_dialog")
+        }
     }
+
+
+
 }
