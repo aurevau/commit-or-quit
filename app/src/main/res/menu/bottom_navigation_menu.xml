@@ -12,19 +12,19 @@
     <item
         android:id="@+id/feedFragment"
         android:enabled="true"
-        android:icon="@drawable/house"
+        android:icon="@drawable/ic_home_selector"
         android:title="Feed"/>
 
     <item
         android:id="@+id/createGoalFragment"
         android:enabled="true"
-        android:icon="@drawable/check_icon"
+        android:icon="@drawable/ic_check_selector"
         android:title="Create Goal"/>
 
     <item
         android:id="@+id/profileFragment"
         android:enabled="true"
-        android:icon="@drawable/profile_icon"
+        android:icon="@drawable/ic_profile_selector"
         android:title="Profile"/>
 
 

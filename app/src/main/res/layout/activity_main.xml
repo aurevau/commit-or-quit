@@ -46,35 +46,36 @@
         app:navGraph="@navigation/nav_graph"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintTop_toBottomOf="@id/main_toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"/>
 
     <!-- Floating Bottom Navigation -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/floating_bottom_nav_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        app:cardCornerRadius="32dp"
-        app:cardElevation="8dp"
-        app:cardBackgroundColor="@color/cq_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:clipToPadding="false">
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/floating_bottom_nav_card"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        app:cardCornerRadius="32dp"-->
+<!--        app:cardElevation="8dp"-->
+<!--        app:cardBackgroundColor="@color/cq_gray"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:clipToPadding="false">-->
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             app:menu="@menu/bottom_navigation_menu"
             app:itemIconTint="@color/cq_on_surface"
-            app:itemActiveIndicatorStyle="@style/BottomNavActiveIndicator"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:itemActiveIndicatorStyle="@null"
             app:itemTextColor="@color/cq_on_surface"
             app:labelVisibilityMode="unlabeled"/>
 
-    </com.google.android.material.card.MaterialCardView>
+<!--    </com.google.android.material.card.MaterialCardView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
