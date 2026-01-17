@@ -1,5 +1,7 @@
 package com.example.commitorquitapp.models
 
+import com.google.firebase.Timestamp
+
 data class Goal(
     val goalId: String = "",
     val goalTitle: String = "",
