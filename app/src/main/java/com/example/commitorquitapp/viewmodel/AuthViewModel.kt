@@ -3,6 +3,7 @@ package com.example.commitorquitapp.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
 class AuthViewModel : ViewModel() {
@@ -42,6 +43,11 @@ class AuthViewModel : ViewModel() {
             .addOnSuccessListener { onSuccess() }
             .addOnFailureListener { onFailure(it) }
     }
+
+
+    fun getCurrentUserId(): String? = FirebaseAuth.getInstance().currentUser?.uid
+
+
 
 
 }
