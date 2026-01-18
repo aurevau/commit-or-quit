@@ -1,6 +1,7 @@
 package com.example.commitorquitapp.viewmodel
 
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -19,7 +20,9 @@ class AuthViewModel : ViewModel() {
     ) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener { onSuccess() }
-            .addOnFailureListener { onFailure(it) }
+            .addOnFailureListener {
+                Log.e("AuthViewModel", "Login failed", it)
+                onFailure(it) }
     }
 
     fun register(
@@ -45,7 +48,7 @@ class AuthViewModel : ViewModel() {
     }
 
 
-    fun getCurrentUserId(): String? = FirebaseAuth.getInstance().currentUser?.uid
+    fun getCurrentUserId(): String? = auth.currentUser?.uid
 
 
 
