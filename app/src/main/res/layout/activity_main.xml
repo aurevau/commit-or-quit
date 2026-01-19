@@ -26,13 +26,31 @@
             android:layout_gravity="center"/>
 
         <ImageButton
+            android:id="@+id/btn_settings"
+            android:background="@android:color/transparent"
+            android:layout_width="40dp"
+            android:scaleType="fitCenter"
+            android:layout_height="40dp"
+            app:tint="@color/cq_on_primary"
+            android:visibility="gone"
+            android:layout_gravity="end"
+            android:src="@drawable/gear"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageButton
             android:id="@+id/btn_notification"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/bell"
+            android:visibility="visible"
             android:layout_marginEnd="16dp"
             android:background="@android:color/transparent"
             android:layout_gravity="end"/>
+
+
+
+
+
     </com.google.android.material.appbar.MaterialToolbar>
 
     <!-- Fragment Container -->

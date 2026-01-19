@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SettingsFragment">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        app:icon="@drawable/back_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:backgroundTint="@android:color/transparent"
+        app:cornerRadius="28dp"
+        app:strokeWidth="1dp"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconTint="@color/cq_on_primary"
+        android:textColor="@color/cq_secondary"
+        app:strokeColor="@color/cq_medium_gray"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_logout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Logout"
+        android:backgroundTint="@android:color/transparent"
+        app:cornerRadius="20dp"
+        app:strokeWidth="1dp"
+        android:textColor="@color/cq_secondary"
+        app:strokeColor="@color/cq_medium_gray"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

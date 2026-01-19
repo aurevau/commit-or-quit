@@ -37,6 +37,10 @@ class CreateGoalFragment : BottomSheetDialogFragment() {
             val dialog = SelectUsersFragment()
             dialog.show(parentFragmentManager, "select_users_fragment_dialog")
         }
+
+        binding.btnCancel.setOnClickListener {
+            dismiss()
+        }
     }
 
 
