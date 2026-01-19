@@ -135,8 +135,25 @@
         app:strokeWidth="1dp"
         android:textColor="@color/cq_on_primary"
         app:strokeColor="@color/cq_medium_gray"
-        app:layout_constraintStart_toEndOf="@id/btn_register"
+        app:layout_constraintStart_toEndOf="@id/btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_bio" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:paddingHorizontal="-6dp"
+        android:text="Cancel"
+        android:backgroundTint="@android:color/transparent"
+        app:cornerRadius="20dp"
+        app:strokeWidth="1dp"
+        android:textColor="@color/cq_on_primary"
+        app:strokeColor="@color/cq_medium_gray"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/btn_save"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_bio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

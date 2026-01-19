@@ -49,6 +49,7 @@ class AuthViewModel : ViewModel() {
 
 
     fun getCurrentUserId(): String? = auth.currentUser?.uid
+    fun getCurrentUserEmail(): String? = auth.currentUser?.email
 
 
 
