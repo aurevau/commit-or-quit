@@ -5,12 +5,13 @@ import com.google.firebase.Timestamp
 data class User(
     val id: String? = null,
     val fullName: String = "",
-    val userName: String = "",
+    val userName: String? = "",
+    val bio: String? = null,
     val email: String = "",
     val profileImageUrl: String? = null,
     val createdAt: Timestamp = Timestamp.now()
 ) {
-    constructor(): this("", "", "", "", null, Timestamp.now())
+    constructor(): this("", "", "", null, "",null, Timestamp.now())
 
     val initials: String
         get() {
