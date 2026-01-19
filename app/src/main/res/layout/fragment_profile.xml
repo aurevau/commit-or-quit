@@ -7,6 +7,7 @@
     tools:context=".ui.ProfileFragment">
     
     <ImageButton
+        android:id="@+id/btn_settings"
         android:background="@android:color/transparent"
         android:layout_width="26dp"
         android:layout_height="26dp"
