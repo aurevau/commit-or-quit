@@ -21,9 +21,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.commitorquitapp.MainActivity
 import com.example.commitorquitapp.R
+import com.example.commitorquitapp.auth.AuthState
 import com.example.commitorquitapp.databinding.ActivityLoginBinding
 import com.example.commitorquitapp.repository.UserRepository
-import com.example.commitorquitapp.viewmodel.AuthViewModel
+import com.example.commitorquitapp.auth.AuthViewModel
+import com.example.commitorquitapp.ui.navigation.AppNavigator
+import com.example.commitorquitapp.ui.navigation.Navigator
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential.Companion.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL
@@ -34,9 +37,10 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var authViewModel: AuthViewModel
     private lateinit var credentialManager: CredentialManager
-
-
+    private lateinit var navigator: Navigator
     private lateinit var binding: ActivityLoginBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
@@ -47,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
 
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         credentialManager = CredentialManager.create(this)
-
+        navigator = AppNavigator(this)
         binding.btnLogin.setOnClickListener {
             login()
         }
@@ -60,6 +64,15 @@ class LoginActivity : AppCompatActivity() {
             loginWithGoogle()
         }
 
+        authViewModel.authState.observe(this) {state ->
+            when (state) {
+                AuthState.LoggedIn -> navigator.toMain()
+                AuthState.NeedsOnboarding -> navigator.toOnboarding()
+                AuthState.LoggedOut -> Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
+
+            }
+        }
+
 
 
     }
@@ -69,8 +82,6 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
         authViewModel.login(email, password, {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
         }, {exception ->
             Toast.makeText(this, "Failed to login: ${exception.message}", Toast.LENGTH_LONG).show()
         })
@@ -99,7 +110,7 @@ class LoginActivity : AppCompatActivity() {
             email = email,
             password = password,
             onSuccess = {
-                // navigera vidare
+
             },
             onFailure = {
                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
@@ -130,24 +141,10 @@ class LoginActivity : AppCompatActivity() {
     private fun handleSignIn(result: GetCredentialResponse) {
         if (result.credential is CustomCredential && result.credential.type == TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
             val googleIdTokenCredential = GoogleIdTokenCredential.createFrom(result.credential.data)
+            val idToken = googleIdTokenCredential.idToken ?: return
 
-            val idToken = googleIdTokenCredential.idToken
-            authViewModel.loginWithGoogle(idToken, {
-                val userId = authViewModel.getCurrentUserId() ?: return@loginWithGoogle
-                val user = UserRepository.getUserDetailsById(userId) { user ->
+            authViewModel.loginWithGoogle(idToken)
 
-                    if (user?.fullName.isNullOrEmpty()) {
-                        intent = Intent(this, OnboardingActivity::class.java)
-                        startActivity(intent)
-                    } else {
-                        intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-                }
-            }, {exception ->
-                Toast.makeText(this, "not sucessfull" + exception.message, Toast.LENGTH_SHORT).show()
-
-            })
         }
     }
 
@@ -183,6 +180,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 
 
 

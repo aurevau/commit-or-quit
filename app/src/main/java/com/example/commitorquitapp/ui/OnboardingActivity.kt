@@ -19,7 +19,7 @@ import com.example.commitorquitapp.MainActivity
 import com.example.commitorquitapp.R
 import com.example.commitorquitapp.databinding.ActivityOnboardingBinding
 import com.example.commitorquitapp.repository.MediaRepository
-import com.example.commitorquitapp.viewmodel.AuthViewModel
+import com.example.commitorquitapp.auth.AuthViewModel
 import com.example.commitorquitapp.viewmodel.UserViewModel
 import com.google.firebase.Timestamp
 
