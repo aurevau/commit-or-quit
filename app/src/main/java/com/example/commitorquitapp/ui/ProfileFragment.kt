@@ -45,9 +45,6 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnSettings.setOnClickListener {
-            val dialog = SettingsFragment()
-            dialog.show(parentFragmentManager, "settings_fragment_dialog")
-        }
+
     }
 }

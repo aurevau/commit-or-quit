@@ -1,6 +1,7 @@
 package com.example.commitorquitapp
 
 import android.os.Bundle
+import android.view.View
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -33,6 +34,30 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.bottomNav.setupWithNavController(navController)
+
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.profileFragment -> {
+                    binding.btnSettings.visibility = View.VISIBLE
+                    binding.btnNotification.visibility = View.GONE
+                }
+                R.id.feedFragment -> {
+                    binding.btnNotification.visibility = View.VISIBLE
+                    binding.btnSettings.visibility = View.GONE
+
+                }
+                else -> {
+                    binding.btnSettings.visibility = View.GONE
+                    binding.btnNotification.visibility = View.GONE
+                }
+            }
+        }
+
+        binding.btnSettings.setOnClickListener {
+            val dialog = SettingsFragment()
+            dialog.show(supportFragmentManager, "settings_fragment_dialog")
+        }
 
         binding.bottomNav.menu
             .findItem(R.id.createGoalFragment)

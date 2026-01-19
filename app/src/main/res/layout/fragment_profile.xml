@@ -5,17 +5,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.ProfileFragment">
-    
-    <ImageButton
-        android:id="@+id/btn_settings"
-        android:background="@android:color/transparent"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/gear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="16dp"/>
 
     <FrameLayout
         android:layout_margin="30dp"
