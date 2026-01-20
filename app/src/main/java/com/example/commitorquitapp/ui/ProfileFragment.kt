@@ -5,33 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.example.commitorquitapp.R
 import com.example.commitorquitapp.SettingsFragment
+import com.example.commitorquitapp.auth.AuthViewModel
 import com.example.commitorquitapp.databinding.FragmentProfileBinding
+import com.example.commitorquitapp.viewmodel.UserViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var authViewModel: AuthViewModel
+    private lateinit var userViewModel: UserViewModel
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        userViewModel = ViewModelProvider(this)[UserViewModel::class.java]
+
+
     }
 
     override fun onCreateView(
@@ -44,6 +43,19 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val currentUserId = authViewModel.getCurrentUserId() ?: return
+
+        userViewModel.getUserDetailsById(currentUserId) {user ->
+            binding.tvUsername.text = user?.userName
+            user?.profileImageUrl?.takeIf { it.isNotBlank() }?.let {
+                Glide.with(binding.profileImage)
+                    .load(user.profileImageUrl)
+                    .placeholder(R.drawable.profile_icon)
+                    .circleCrop()
+                    .into(binding.profileImage)
+            }
+        }
 
 
     }
