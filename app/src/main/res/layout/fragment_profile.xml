@@ -39,6 +39,17 @@
             android:focusable="true"/>
     </FrameLayout>
 
+    <TextView
+        android:layout_margin="16dp"
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="username"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/profile_container"
+        app:layout_constraintStart_toStartOf="@id/profile_container"
+        app:layout_constraintEnd_toEndOf="@id/profile_container"/>
 
 
         <TextView
@@ -49,7 +60,7 @@
             android:text="17"
             android:textColor="#ffffff"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_container"
+            app:layout_constraintTop_toBottomOf="@id/tv_username"
             app:layout_constraintEnd_toStartOf="@id/profile_container"
             app:layout_constraintEnd_toEndOf="@id/tv_goals"/>
 
@@ -62,7 +73,7 @@
             android:text="goals"
             app:layout_constraintEnd_toEndOf="@id/tv_goal_number"
             app:layout_constraintStart_toStartOf="@id/tv_goal_number"
-            app:layout_constraintTop_toBottomOf="@id/tv_goal_number"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_username"/>
 
         <TextView
             android:layout_margin="16dp"
@@ -72,7 +83,7 @@
             android:text="5"
             android:textColor="#ffffff"
             android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_container"
+            app:layout_constraintTop_toBottomOf="@id/tv_username"
             app:layout_constraintStart_toEndOf="@id/profile_container"
             />
 
@@ -85,7 +96,7 @@
             android:text="friends"
             app:layout_constraintEnd_toEndOf="@id/tv_friends_number"
             app:layout_constraintStart_toStartOf="@id/tv_friends_number"
-            app:layout_constraintTop_toBottomOf="@id/tv_friends_number" />
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
 
     
