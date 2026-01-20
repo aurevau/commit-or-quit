@@ -1,10 +1,14 @@
 package com.example.commitorquitapp.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.commitorquitapp.R
@@ -19,6 +23,10 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var authViewModel: AuthViewModel
     private lateinit var userViewModel: UserViewModel
+
+
+
+
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -57,6 +65,16 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        binding.profileImage.setOnClickListener {
+                val intent = Intent(requireActivity(), OnboardingActivity::class.java)
+                startActivity(intent)
+
+        }
+
+
+
 
     }
+
+
 }

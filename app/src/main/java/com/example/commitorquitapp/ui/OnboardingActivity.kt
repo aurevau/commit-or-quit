@@ -52,6 +52,8 @@ class OnboardingActivity : AppCompatActivity() {
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         currentUserId = authViewModel.getCurrentUserId() ?: return
 
+        setData()
+
         if (currentUserId != null) {
             userViewModel.getUserDetailsById(currentUserId!!) {user ->
                 if (user?.fullName?.isBlank() == true || user?.userName?.isBlank() == true) {
