@@ -26,17 +26,7 @@
             android:clickable="true"
             android:focusable="true"/>
 
-        <ImageButton
-            android:id="@+id/btn_add_profile"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="bottom|end"
-            android:background="@drawable/circle_white_background"
-            android:src="@drawable/add_icon"
-            android:scaleType="center"
-            android:contentDescription="add profile picture"
-            android:clickable="true"
-            android:focusable="true"/>
+
     </FrameLayout>
 
     <TextView

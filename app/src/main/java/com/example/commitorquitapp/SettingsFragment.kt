@@ -1,5 +1,6 @@
 package com.example.commitorquitapp
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.commitorquitapp.auth.AuthState
 import com.example.commitorquitapp.auth.AuthViewModel
 import com.example.commitorquitapp.databinding.FragmentSettingsBinding
+import com.example.commitorquitapp.ui.OnboardingActivity
 import com.example.commitorquitapp.ui.navigation.AppNavigator
 import com.example.commitorquitapp.ui.navigation.Navigator
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -52,6 +54,8 @@ class SettingsFragment : BottomSheetDialogFragment() {
 
 
 
+
+
     }
 
 
@@ -60,7 +64,7 @@ class SettingsFragment : BottomSheetDialogFragment() {
 
         val dialog = dialog as? BottomSheetDialog ?: return
 
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.window?.setWindowAnimations(R.style.DialogSlideInLeftAnimation)
 
         val bottomSheet =
