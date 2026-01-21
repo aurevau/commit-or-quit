@@ -25,25 +25,37 @@
             android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <com.google.android.material.chip.ChipGroup
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="6dp"
+        android:id="@+id/chipGroupMembers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:singleLine="false"
+        app:chipSpacing="4dp"
+        app:singleSelection="false"
+        app:layout_constraintBottom_toTopOf="@id/rvUsers"
         app:layout_constraintTop_toBottomOf="@id/til_search_user"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toStartOf="@id/confirm_btn"/>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/confirm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/cq_secondary"
+        android:text="Confirm"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/til_search_user"
+        app:layout_constraintTop_toBottomOf="@id/til_search_user" />
 
-            <include layout="@layout/search_section"/>
-            <include layout="@layout/search_section"/>
-            <include layout="@layout/search_section"/>
-
-        </LinearLayout>
-    </ScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUsers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/chipGroupMembers"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 

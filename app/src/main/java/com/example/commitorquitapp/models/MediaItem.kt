@@ -5,7 +5,3 @@ data class MediaItem(
     val type: MediaType = MediaType.IMAGE
 )
 
-enum class MediaType {
-    IMAGE,
-    VIDEO
-}

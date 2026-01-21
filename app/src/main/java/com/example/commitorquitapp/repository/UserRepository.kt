@@ -1,17 +1,41 @@
 package com.example.commitorquitapp.repository
 
+import android.util.Log
 import com.example.commitorquitapp.models.User
 import com.google.firebase.Firebase
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.firestore
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.Flow
+
 
 object UserRepository {
     private val auth = FirebaseAuth.getInstance()
 
 
     private val db = Firebase.firestore
+
+    fun observeUsers(): Flow<List<User>> = callbackFlow {
+        val listener: ListenerRegistration =
+            db.collection("users")
+                .addSnapshotListener { snapshot, error ->
+                    Log.d("UserRepo", "snapshot size=${snapshot?.size()}")
+
+                    if (error != null) {
+                        close(error)
+                        return@addSnapshotListener
+                    }
+                    val users = snapshot?.documents?.mapNotNull { doc ->
+                        doc.toObject(User::class.java)?.copy(id = doc.id)
+                    } ?: emptyList()
+                    trySend(users).isSuccess
+                }
+        awaitClose { listener.remove() }
+    }
 
     fun saveUserToFirestore(
         fullName: String,

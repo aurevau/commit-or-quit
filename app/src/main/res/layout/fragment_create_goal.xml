@@ -136,7 +136,6 @@
             android:clickable="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Första raden: Friends Only / Everyone -->
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/privacy_toggle_row1"
         android:layout_width="0dp"
@@ -188,7 +187,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        app:singleSelection="false"
+        app:singleSelection="true"
         app:chipSpacing="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -259,6 +258,8 @@
             android:layout_width="match_parent"
             android:textSize="16sp"
             android:paddingStart="40dp"
+            android:inputType="none"
+            android:clickable="true"
             android:textColor="@color/cq_on_surface"
             android:textColorHint="@color/cq_on_surface"
             android:layout_height="wrap_content"/>
