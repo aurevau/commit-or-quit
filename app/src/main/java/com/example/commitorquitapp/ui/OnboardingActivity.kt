@@ -117,9 +117,9 @@ class OnboardingActivity : AppCompatActivity() {
         bio: String,
         email: String) {
         if (currentUserId != null) {
-            MediaRepository.uploadProfileImageToFirebase(
+            MediaRepository.uploadProfileImage(
                 imageUri = imageUri!!,
-                userId = currentUserId!!,
+                userId = userId,
                 onSuccess = { downloadUrl ->
                     saveUserData(fullName, userName, bio, email, downloadUrl)
                 }, onError = {
