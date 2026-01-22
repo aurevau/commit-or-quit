@@ -16,6 +16,7 @@ import com.example.commitorquitapp.CreateGoalState
 import com.example.commitorquitapp.R
 import com.example.commitorquitapp.auth.AuthViewModel
 import com.example.commitorquitapp.databinding.FragmentCreateGoalBinding
+import com.example.commitorquitapp.models.Privacy
 import com.example.commitorquitapp.models.UpdateFrequency
 import com.example.commitorquitapp.util.REQUEST_SELECT_USERS
 import com.example.commitorquitapp.util.RESULT_SELECTED_USER_IDS
@@ -45,6 +46,7 @@ class CreateGoalFragment : BottomSheetDialogFragment() {
 
     private var startDate: Timestamp? = null
     private var endDate: Timestamp? = null
+    private var privacy: Privacy = Privacy.MEMBERS
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,6 +113,18 @@ class CreateGoalFragment : BottomSheetDialogFragment() {
             }
         }
 
+
+
+        binding.privacyToggleRow1.addOnButtonCheckedListener {_, checkedId, isChecked ->
+            if (!isChecked) return@addOnButtonCheckedListener
+
+            privacy = when (checkedId) {
+                R.id.btn_members_only -> Privacy.MEMBERS
+                R.id.btn_everyone -> Privacy.PUBLIC
+                else -> Privacy.MEMBERS
+            }
+        }
+
         binding.btnPost.setOnClickListener {
             val memberIds = getSelectedMemberIds()
                 .plus(currentUserId)
@@ -124,7 +138,8 @@ class CreateGoalFragment : BottomSheetDialogFragment() {
                 endDate = endDate,
                 goalCategory = getSelectedCategory(),
                 updateFrequency = getUpdateFrequency(),
-                memberIds = memberIds
+                memberIds = memberIds,
+                privacy = privacy
             )
             dismiss()
         }
