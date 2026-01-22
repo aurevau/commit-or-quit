@@ -11,6 +11,7 @@ data class GoalUpdate(
     val timestamp: Timestamp = Timestamp.now(),
     val senderProfilePic: String? = null,
     val media: List<MediaItem> = emptyList(),
-    val likes: Map<String, Timestamp> = emptyMap()
+    val likes: Map<String, Timestamp> = emptyMap(),
+    val privacy: String = ""
 ) {
 }

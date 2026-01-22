@@ -6,6 +6,7 @@ import com.example.commitorquitapp.CreateGoalState
 import com.example.commitorquitapp.models.Goal
 import com.example.commitorquitapp.models.GoalUpdate
 import com.example.commitorquitapp.models.Invitation
+import com.example.commitorquitapp.models.Privacy
 import com.example.commitorquitapp.repository.GoalRepository
 import com.google.firebase.Timestamp
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,7 +28,8 @@ class GoalViewModel: ViewModel() {
         memberIds: List<String>,
         startDate: Timestamp? = null,
         endDate: Timestamp? = null,
-        firstUpdate: GoalUpdate? = null
+        firstUpdate: GoalUpdate? = null,
+        privacy: Privacy = Privacy.MEMBERS
     ) {
         val invitations = memberIds
             .filter { it != creatorId }
@@ -46,7 +48,8 @@ class GoalViewModel: ViewModel() {
             startDate = startDate,
             endDate = endDate,
             lastUpdate = firstUpdate,
-            invitations = invitations
+            invitations = invitations,
+            privacy = privacy
 
         )
 

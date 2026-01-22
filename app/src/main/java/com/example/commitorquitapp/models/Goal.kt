@@ -16,6 +16,7 @@ data class Goal(
     val endDate: Timestamp? = null,
     val updateFrequency: Int = 0,
     val media: List<MediaItem> = emptyList(),
+    val privacy: Privacy = Privacy.MEMBERS
 
 ) {
 }
